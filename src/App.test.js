@@ -14,4 +14,12 @@ describe("Bowling Game", () => {
     expect(app.find('.scoreBoard .frame').length).toBe(10);
   }) 
 
+  it("Should 2 colums in each frame", () =>{
+    let app = shallow(<App />);
+    
+    let frameColumnsLength = app.find('.scoreBoard .frame').at(0).childAt(1).find("span").length;
+
+    expect(frameColumnsLength).toBe(2);
+  }) 
+
 });
