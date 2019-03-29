@@ -14,6 +14,14 @@ class App extends Component {
     }
   }
 
+  getFrames = () =>{
+    let frameList = [];
+    for(let i=0; i<10; i++){
+      frameList.push(<FrameComponent key={i}/>);
+    }
+    return frameList;
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,16 +34,7 @@ class App extends Component {
           className="btn_generate"
           onClick={this.rollPins}>Start</button>
         <div className="scoreBoard">
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
-            <FrameComponent />
+            {this.getFrames()}
         </div>
       </div>
     );
