@@ -1,11 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import { configure , shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {shallow} from 'enzyme';
 import FrameComponent from './components/Frame-component';
-
-configure({ adapter: new Adapter() });
 
 describe("Bowling Game", () => {
   let app;
