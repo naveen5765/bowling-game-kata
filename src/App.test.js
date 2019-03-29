@@ -19,4 +19,16 @@ describe("Bowling Game", () => {
     expect(app.instance().scoreBoard.length).toBe(20);
   })
 
+  it("Should set the limit of random numbers from 0 to 10", () => {
+    let isRollInLimit = true;
+
+    app.instance().rollPins()
+
+    app.instance().scoreBoard.forEach((roll) => {
+      roll > 10 && (isRollInLimit = false);
+    })
+
+    expect(isRollInLimit).toBeTruthy();
+  })
+
 });
