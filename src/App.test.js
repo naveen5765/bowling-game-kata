@@ -13,4 +13,10 @@ describe("Bowling Game", () => {
     expect(app.find(FrameComponent).length).toBe(10);
   }) 
 
+  it("Should show a start button and on click of it, generate 20 random rolls", () => {
+    app.find('.btn_generate').simulate('click');
+
+    expect(app.instance().scoreBoard.length).toBe(20);
+  })
+
 });

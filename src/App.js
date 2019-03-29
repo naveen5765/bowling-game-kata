@@ -3,6 +3,17 @@ import './App.css';
 import FrameComponent from './components/Frame-component';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.scoreBoard = [];
+  }
+
+  rollPins = () =>{
+    for(let i=0; i<20 ; i++){
+      this.scoreBoard.push(Math.random());
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,6 +22,9 @@ class App extends Component {
             Bowling Game
           </h1>
         </header>
+        <button 
+          className="btn_generate"
+          onClick={this.rollPins()}>Start</button>
         <div className="scoreBoard">
             <FrameComponent />
             <FrameComponent />
