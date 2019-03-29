@@ -8,16 +8,28 @@ class App extends Component {
     this.scoreBoard = [];
   }
 
+  state = {
+    scoreBoard: []
+  }
+
   rollPins = () =>{
+    let scoreBoard = [];
     for(let i=0; i<20 ; i++){
-      this.scoreBoard.push(Math.round(Math.random() * 10));
+      scoreBoard.push(Math.round(Math.random() * 10));
     }
+    this.setState({
+      scoreBoard
+    })
   }
 
   getFrames = () =>{
     let frameList = [];
-    for(let i=0; i<10; i++){
-      frameList.push(<FrameComponent key={i}/>);
+    for(let i=0; i<20; i=i+2){
+      frameList.push(
+        <FrameComponent key={i}    
+          roll1={this.state.scoreBoard[i]} 
+          roll2={this.state.scoreBoard[i+1]}/>
+      );
     }
     return frameList;
   }

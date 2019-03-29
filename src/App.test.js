@@ -16,7 +16,7 @@ describe("Bowling Game", () => {
   it("Should show a start button and on click of it, generate 20 random rolls", () => {
     app.find('.btn_generate').simulate('click');
 
-    expect(app.instance().scoreBoard.length).toBe(20);
+    expect(app.instance().state.scoreBoard.length).toBe(20);
   })
 
   it("Should set the limit of random numbers from 0 to 10", () => {
@@ -30,5 +30,6 @@ describe("Bowling Game", () => {
 
     expect(isRollInLimit).toBeTruthy();
   })
+  
 
 });
