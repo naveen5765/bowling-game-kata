@@ -12,14 +12,29 @@ class App extends Component {
     scoreBoard: []
   }
 
+  generateRandomValue = (max) =>{
+    return Math.round(Math.random() * max);
+  }
+
   rollPins = () =>{
     let scoreBoard = [];
     for(let i=0; i<10; i++){
-      const roll1 = Math.round(Math.random() * 10);
-      const roll2 = Math.round(Math.random() * (10-roll1));
+      const roll1 = this.generateRandomValue(10);
+      const roll2 = this.generateRandomValue(10-roll1);
 
-      scoreBoard.push(roll1);
-      scoreBoard.push(roll2);
+      if(i === 9 && roll1 === 10){
+        scoreBoard.push(roll1);
+        const frame10roll2 = this.generateRandomValue(10);
+        scoreBoard.push(frame10roll2);
+        if(frame10roll2 === 10){
+          scoreBoard.push(this.generateRandomValue(10));
+        }else{
+          scoreBoard.push(this.generateRandomValue(10-frame10roll2));
+        }
+      }else{
+        scoreBoard.push(roll1);
+        scoreBoard.push(roll2);
+      }
     }
     this.setState({
       scoreBoard
