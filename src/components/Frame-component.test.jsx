@@ -21,5 +21,13 @@ describe("Bowling Game", () => {
     expect(roll1).toEqual("1");
     expect(roll2).toEqual("5");
   }) 
+});
 
+describe("Validate Strike and Spare to be X and /", () => {
+  it("Should display 'X' when roll1 is 10", () =>{
+    let frame = shallow(<FrameComponent roll1={10} roll2={0}/>);
+    let roll1 = frame.find('.frame span').at(0).text();
+
+    expect(roll1).toEqual("X");
+  }) 
 });
