@@ -14,8 +14,12 @@ class App extends Component {
 
   rollPins = () =>{
     let scoreBoard = [];
-    for(let i=0; i<20 ; i++){
-      scoreBoard.push(Math.round(Math.random() * 10));
+    for(let i=0; i<10; i++){
+      const roll1 = Math.round(Math.random() * 10);
+      const roll2 = Math.round(Math.random() * (10-roll1));
+
+      scoreBoard.push(roll1);
+      scoreBoard.push(roll2);
     }
     this.setState({
       scoreBoard
