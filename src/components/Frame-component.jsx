@@ -7,7 +7,7 @@ const FrameComponent = function(props){
             <p> frame 1</p>
             <div className="pins">
                 <span>{props.roll1 === 10 ? 'X' : props.roll1}</span>
-                <span>{props.roll2}</span>
+                <span>{props.roll1 === 10 ? '' : props.roll2}</span>
             </div>
         </div>
     );

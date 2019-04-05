@@ -30,4 +30,11 @@ describe("Validate Strike and Spare to be X and /", () => {
 
     expect(roll1).toEqual("X");
   }) 
+
+  it("Should display empty in roll2 when roll1 is 10", () =>{
+    let frame = shallow(<FrameComponent roll1={10} roll2={0}/>);
+    let roll2 = frame.find('.frame span').at(1).text();
+
+    expect(roll2).toEqual("");
+  }) 
 });
