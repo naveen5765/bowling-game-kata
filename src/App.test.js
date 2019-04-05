@@ -76,4 +76,17 @@ describe("Bowling Game", () => {
     expect(totalRollsInFrame10).toBeTruthy();
   })
 
+  it("Should not provide an extra change in the 10th Frame if the player doesnt scores neither a Strike or a Spare", () => {
+    let totalRollsInFrame10 = false;
+
+    app.instance().generateRandomValue = (max) => {
+      return 4;
+    }
+
+    app.instance().rollPins();
+    const scoreBoard = app.instance().state.scoreBoard;
+
+    expect(scoreBoard.length).toBe(20);
+  })
+
 });
