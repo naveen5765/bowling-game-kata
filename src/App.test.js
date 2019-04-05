@@ -60,4 +60,20 @@ describe("Bowling Game", () => {
     expect(totalRollsInFrame10).toBeTruthy();
   })
 
+  it("Should provide an extra change in the 10th Frame if the player scores a Spare", () => {
+    let totalRollsInFrame10 = false;
+
+    app.instance().generateRandomValue = (max) => {
+      return 5;
+    }
+
+    app.instance().rollPins();
+    const scoreBoard = app.instance().state.scoreBoard;
+    if(scoreBoard[18]+scoreBoard[19] === 10 && scoreBoard.length === 21){
+      totalRollsInFrame10 = true
+    }
+
+    expect(totalRollsInFrame10).toBeTruthy();
+  })
+
 });

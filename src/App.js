@@ -31,6 +31,10 @@ class App extends Component {
         }else{
           scoreBoard.push(this.generateRandomValue(10-frame10roll2));
         }
+      }else if(i === 9 && roll1+roll2 === 10){
+        scoreBoard.push(roll1);
+        scoreBoard.push(roll2);
+        scoreBoard.push(this.generateRandomValue(10));
       }else{
         scoreBoard.push(roll1);
         scoreBoard.push(roll2);
