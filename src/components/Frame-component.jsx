@@ -6,12 +6,28 @@ const FrameComponent = function(props){
         return roll1 === 10
     }
 
+    const isSpare = (frame) => {
+        return frame.roll1 + frame.roll2 === 10
+    }
+    
+    const getRoll2Value = (frame) => {
+        let value;
+        if(isStrike(frame.roll1)){
+            value = ''
+        }else if(isSpare(frame)){
+            value = '/'
+        }else{
+            value = frame.roll2
+        }
+        return value;
+    }
+
     return (
         <div className="frame">
             <p> frame 1</p>
             <div className="pins">
                 <span>{isStrike(props.roll1) ? 'X' : props.roll1}</span>
-                <span>{isStrike(props.roll1) ? '' : props.roll2}</span>
+                <span>{getRoll2Value(props)}</span>
             </div>
         </div>
     );

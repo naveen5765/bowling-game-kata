@@ -37,4 +37,11 @@ describe("Validate Strike and Spare to be X and /", () => {
 
     expect(roll2).toEqual("");
   }) 
+
+  it("Should display '/' in roll2 when roll1 is not 10, but sum of roll1 and roll2 is 10", () =>{
+    let frame = shallow(<FrameComponent roll1={6} roll2={4}/>);
+    let roll2 = frame.find('.frame span').at(1).text();
+
+    expect(roll2).toEqual("/");
+  }) 
 });
