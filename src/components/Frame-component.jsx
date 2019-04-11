@@ -12,12 +12,22 @@ const FrameComponent = function(props){
     
     const getRoll2Value = (frame) => {
         let value;
-        if(isStrike(frame.roll1)){
-            value = ''
-        }else if(isSpare(frame)){
-            value = '/'
+        if(frame.index !== 10){
+            if(isStrike(frame.roll1)){
+                value = ''
+            }else if(isSpare(frame)){
+                value = '/'
+            }else{
+                value = frame.roll2
+            } 
         }else{
-            value = frame.roll2
+            if(isStrike(frame.roll1) && isStrike(frame.roll2)){
+                value = 'X'
+            }else if(isSpare(frame) && !isStrike(frame.roll1)){
+                value = '/'
+            }else{
+                value = frame.roll2
+            } 
         }
         return value;
     }

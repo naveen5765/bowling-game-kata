@@ -55,5 +55,12 @@ describe('10th Frame', () => {
 
     expect(roll3).toEqual("5");
   }) 
+
+  it("Should display Strike in roll 2 if the roll 2 and roll 1 value is 10", () =>{
+    let frame = shallow(<FrameComponent roll1={10} roll2={10} roll3={5} index={10}/>);
+    let roll2 = frame.find('.frame span').at(1).text();
+
+    expect(roll2).toEqual("X");
+  }) 
 })
 
