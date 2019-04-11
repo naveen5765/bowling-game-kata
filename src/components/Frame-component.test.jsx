@@ -69,5 +69,12 @@ describe('10th Frame', () => {
 
     expect(roll3).toEqual("X");
   }) 
+
+  it("Should display Spare in roll 3 if the roll 1 is Strike and sum of roll 2 and 3 is 10", () =>{
+    let frame = shallow(<FrameComponent roll1={10} roll2={7} roll3={3} index={10}/>);
+    let roll3 = frame.find('.frame span').at(2).text();
+
+    expect(roll3).toEqual("/");
+  }) 
 })
 

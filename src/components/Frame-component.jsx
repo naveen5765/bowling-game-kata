@@ -38,6 +38,8 @@ const FrameComponent = function(props){
             let frameValue = frame.roll3;
             if(isStrike(frame.roll1) && isStrike(frame.roll2) && isStrike(frame.roll3)){
                 frameValue = 'X'
+            }else if(isStrike(frame.roll1) && !isStrike(frame.roll2) && (frame.roll2 + frame.roll3 === 10)){
+                frameValue = '/'
             }
             value = <span>{frameValue}</span>
         }
