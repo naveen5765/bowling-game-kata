@@ -22,12 +22,21 @@ const FrameComponent = function(props){
         return value;
     }
 
+    const getRoll3Value = (frame) => {
+        let value;
+        if((isStrike(frame.roll1) || isSpare(frame)) && frame.index === 10){
+            value = <span>{frame.roll3}</span>
+        }
+        return value;
+    }
+
     return (
         <div className="frame">
             <p> frame 1</p>
             <div className="pins">
                 <span>{isStrike(props.roll1) ? 'X' : props.roll1}</span>
                 <span>{getRoll2Value(props)}</span>
+                {getRoll3Value(props)}
             </div>
         </div>
     );

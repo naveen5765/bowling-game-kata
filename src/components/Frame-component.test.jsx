@@ -21,6 +21,7 @@ describe("Bowling Game", () => {
     expect(roll1).toEqual("1");
     expect(roll2).toEqual("5");
   }) 
+
 });
 
 describe("Validate Strike and Spare to be X and /", () => {
@@ -44,4 +45,15 @@ describe("Validate Strike and Spare to be X and /", () => {
 
     expect(roll2).toEqual("/");
   }) 
+  
 });
+
+describe('10th Frame', () => {
+  it("Should display roll3 for 10th Frame when the previous rolls are either Spare or Strike", () =>{
+    let frame = shallow(<FrameComponent roll1={10} roll2={0} roll3={5} index={10}/>);
+    let roll3 = frame.find('.frame span').at(2).text();
+
+    expect(roll3).toEqual("5");
+  }) 
+})
+

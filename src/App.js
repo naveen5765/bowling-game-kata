@@ -46,13 +46,24 @@ class App extends Component {
   }
 
   getFrames = () =>{
-    let frameList = [];
+    let frameList = [], frameIndex = 1;
     for(let i=0; i<20; i=i+2){
-      frameList.push(
-        <FrameComponent key={i}    
-          roll1={this.state.scoreBoard[i]} 
-          roll2={this.state.scoreBoard[i+1]}/>
-      );
+      if(frameIndex === 10)
+        frameList.push(
+          <FrameComponent key={i}    
+            roll1={this.state.scoreBoard[i]} 
+            roll2={this.state.scoreBoard[i+1]}
+            roll3={this.state.scoreBoard[i+2]}
+            index={frameIndex}/>
+        );
+      else
+        frameList.push(
+          <FrameComponent key={i}    
+            roll1={this.state.scoreBoard[i]} 
+            roll2={this.state.scoreBoard[i+1]}
+            index={frameIndex}/>
+        );
+      frameIndex ++;
     }
     return frameList;
   }

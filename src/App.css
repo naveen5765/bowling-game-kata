@@ -44,10 +44,13 @@
 }
 .frame .pins span {
 	width: 47%;
-    display: inline-block;
-    text-align: center;
-    padding: 5px 0;
-    border-right: 1px solid;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 0;
+  border-right: 1px solid;
+}
+.frame:last-child .pins span {
+  width: 32%;
 }
 .frame .pins span:last-child {
 	border-right: none;

@@ -32,12 +32,12 @@ describe("Bowling Game", () => {
     expect(isRollInLimit).toBeTruthy();
   })
 
-  it("Should not exceed a total of 10 per frame", () => {
+  it("Should not exceed a total of 10 per frame except the 10th frame", () => {
     let totalFrameCountNotMoreThan10 = true;
 
     app.instance().rollPins();
     const scoreBoard = app.instance().state.scoreBoard;
-    for(let i=0, j=0; i<10; i++, j=j+2){
+    for(let i=0, j=0; i<9; i++, j=j+2){
       scoreBoard[j] + scoreBoard[j+1] > 10 && (totalFrameCountNotMoreThan10 = false)
     }
     
