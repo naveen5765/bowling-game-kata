@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import FrameComponent from './components/Frame-component';
+import TotalComponent from './components/Total-component';
 
 class App extends Component {
   constructor(){
@@ -82,6 +83,7 @@ class App extends Component {
         <div className="scoreBoard">
             {this.getFrames()}
         </div>
+        <TotalComponent scoreBoard={this.state.scoreBoard} />
       </div>
     );
   }
