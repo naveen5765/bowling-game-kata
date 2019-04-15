@@ -5,18 +5,20 @@ const TotalComponent = function(props){
     
     const calculateScore = (scoreBoard) => {
         let total = 0;
-        for(let frame=0, roll=0; frame<10; frame++, roll=roll+2){
-            total += scoreBoard[roll] + scoreBoard[roll+1];
-            if(isStrike(scoreBoard[roll])){
-                total += calculareStrikeBonus(frame, roll, scoreBoard);
-            }else if(isSpare(scoreBoard[roll],scoreBoard[roll+1])){
-                total += calculareSpareBonus(roll, scoreBoard);
+        if(scoreBoard.length > 0){
+            for(let frame=0, roll=0; frame<10; frame++, roll=roll+2){
+                total += scoreBoard[roll] + scoreBoard[roll+1];
+                if(isStrike(scoreBoard[roll])){
+                    total += calculateStrikeBonus(frame, roll, scoreBoard);
+                }else if(isSpare(scoreBoard[roll],scoreBoard[roll+1])){
+                    total += calculateSpareBonus(roll, scoreBoard);
+                }
             }
-        }
+        } 
         return total;
     }
 
-    const calculareStrikeBonus = (frame, roll, scoreBoard) => {
+    const calculateStrikeBonus = (frame, roll, scoreBoard) => {
         let strikeBonus = 0;
         if(frame === 9){
             strikeBonus += scoreBoard[roll+2];
@@ -31,7 +33,7 @@ const TotalComponent = function(props){
         return strikeBonus;
     }
 
-    const calculareSpareBonus = (roll, scoreBoard) => {
+    const calculateSpareBonus = (roll, scoreBoard) => {
         return scoreBoard[roll+2];
     }
 
