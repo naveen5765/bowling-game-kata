@@ -22,6 +22,12 @@ describe("Bowling Game Score Calculator", () => {
     let score = total.find('.total span').at(1).text();
     expect(score).toBe("29");
   }) 
+
+  it("Should calculate the total score as 30 when the first frame is a Strike and other rolls are 1", () =>{
+    let total = shallow(<TotalComponent scoreBoard={[10,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}/>);
+    let score = total.find('.total span').at(1).text();
+    expect(score).toBe("30");
+  }) 
   
 });
 

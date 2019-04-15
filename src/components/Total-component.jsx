@@ -8,7 +8,9 @@ const TotalComponent = function(props){
         for(let frame=0, roll=0; frame<10; frame++, roll=roll+2){
             total += scoreBoard[roll];
             total += scoreBoard[roll+1];
-            if(isSpare(scoreBoard[roll],scoreBoard[roll+1])){
+            if(isStrike(scoreBoard[roll])){
+                total += scoreBoard[roll+2] + scoreBoard[roll+3];
+            }else if(isSpare(scoreBoard[roll],scoreBoard[roll+1])){
                 total += scoreBoard[roll+2];
             }
         }
@@ -16,7 +18,11 @@ const TotalComponent = function(props){
     }
 
     const isSpare = (roll1, roll2) => {
-        return (roll1+roll2 === 10);
+        return roll1+roll2 === 10;
+    } 
+
+    const isStrike = (roll1) => {
+        return roll1 === 10;
     } 
 
     return (
