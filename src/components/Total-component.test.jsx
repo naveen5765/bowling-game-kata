@@ -28,6 +28,12 @@ describe("Bowling Game Score Calculator", () => {
     let score = total.find('.total span').at(1).text();
     expect(score).toBe("30");
   }) 
+
+  it("Should calculate the total score as 150 when all the rolls are 5, that is all the frames are spare", () =>{
+    let total = shallow(<TotalComponent scoreBoard={[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]}/>);
+    let score = total.find('.total span').at(1).text();
+    expect(score).toBe("150");
+  })
   
 });
 
