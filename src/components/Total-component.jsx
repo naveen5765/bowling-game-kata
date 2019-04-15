@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 const TotalComponent = function(props){
     
     const calculateScore = (scoreBoard) => {
-        return 0;
+        return scoreBoard.reduce((total, currentValue) => {
+            return total + currentValue;
+        })
     }
 
     return (
