@@ -9,7 +9,16 @@ const TotalComponent = function(props){
             total += scoreBoard[roll];
             total += scoreBoard[roll+1];
             if(isStrike(scoreBoard[roll])){
-                total += scoreBoard[roll+2] + scoreBoard[roll+3];
+                if(frame === 9){
+                    total += scoreBoard[roll+2];
+                }else{
+                    total += scoreBoard[roll+2];
+                    if(isStrike(scoreBoard[roll+2])){
+                        total += scoreBoard[roll+4];
+                    }else{
+                        total += scoreBoard[roll+3];
+                    }
+                }
             }else if(isSpare(scoreBoard[roll],scoreBoard[roll+1])){
                 total += scoreBoard[roll+2];
             }

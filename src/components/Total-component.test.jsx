@@ -34,6 +34,12 @@ describe("Bowling Game Score Calculator", () => {
     let score = total.find('.total span').at(1).text();
     expect(score).toBe("150");
   })
+
+  it("Should calculate the total score as 300 for a perfect game", () =>{
+    let total = shallow(<TotalComponent scoreBoard={[10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,10,10]}/>);
+    let score = total.find('.total span').at(1).text();
+    expect(score).toBe("300");
+  })
   
 });
 
