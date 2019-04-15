@@ -16,6 +16,12 @@ describe("Bowling Game Score Calculator", () => {
     let score = total.find('.total span').at(1).text();
     expect(score).toBe("20");
   }) 
+
+  it("Should calculate the total score as 29 when the first two rolls are 5 and other rolls are 1", () =>{
+    let total = shallow(<TotalComponent scoreBoard={[5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}/>);
+    let score = total.find('.total span').at(1).text();
+    expect(score).toBe("29");
+  }) 
   
 });
 
