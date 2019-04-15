@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TotalComponent = function(props){
+
+    const TOTAL_PINS_PER_FRAME = 10;
     
     const calculateScore = (scoreBoard) => {
         let total = 0;
         if(scoreBoard.length > 0){
-            for(let frame=0, roll=0; frame<10; frame++, roll=roll+2){
+            for(let frame=0, roll=0; frame<TOTAL_PINS_PER_FRAME; frame++, roll=roll+2){
                 total += scoreBoard[roll] + scoreBoard[roll+1];
                 if(isStrike(scoreBoard[roll])){
                     total += calculateStrikeBonus(frame, roll, scoreBoard);
@@ -38,11 +40,11 @@ const TotalComponent = function(props){
     }
 
     const isSpare = (roll1, roll2) => {
-        return roll1+roll2 === 10;
+        return roll1+roll2 === TOTAL_PINS_PER_FRAME;
     } 
 
     const isStrike = (roll1) => {
-        return roll1 === 10;
+        return roll1 === TOTAL_PINS_PER_FRAME;
     } 
 
     return (
