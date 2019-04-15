@@ -48,7 +48,7 @@ const FrameComponent = function(props){
 
     return (
         <div className="frame">
-            <p> frame 1</p>
+            <p> frame {props.index}</p>
             <div className="pins">
                 <span>{isStrike(props.roll1) ? 'X' : props.roll1}</span>
                 <span>{getRoll2Value(props)}</span>
